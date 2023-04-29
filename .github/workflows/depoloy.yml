@@ -23,7 +23,7 @@ jobs:
           KUBECONFIGFILE: ${{ secrets.KUBECONFIGFILE }}
           KUBECONFIG: ~/.kube/config
         run: |
-          mkdir -p ~/.kube
+          mkdir -p ~/.kube/
           echo "$KUBECONFIGFILE" > $KUBECONFIG
 
       - name: Helm delpoy
