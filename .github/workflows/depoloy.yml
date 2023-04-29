@@ -26,6 +26,7 @@ jobs:
         run: |
           mkdir -p $KUBECONFIG_FOLDER
           echo "$KUBECONFIGFILE" > $KUBECONFIG
+          kubectl config set-cluster default --server=https://188.32.49.111:6443
 
       - name: Helm delpoy
         run: |
