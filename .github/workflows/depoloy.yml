@@ -29,6 +29,8 @@ jobs:
           kubectl config set-cluster default --server=https://188.32.49.111:6443
 
       - name: Helm delpoy
+        env:
+            KUBECONFIG: ${{ github.workspace }}/kube_config/config
         run: |
           helmfile --file ${{ github.workspace }}/helmfile.yaml apply --suppress-secrets
           
