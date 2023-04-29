@@ -25,14 +25,11 @@ jobs:
           KUBECONFIG: ${{ github.workspace }}/kube_config/config
         run: |
           mkdir -p $KUBECONFIG_FOLDER
-          echo "$KUBECONFIGFILE" > $KUBECONFIG
-          kubectl config set-cluster default --server=https://188.32.49.111:6443
+          echo "$KUBECONFIG_FILE" > $KUBECONFIG
 
       - name: Helm delpoy
         env:
             KUBECONFIG: ${{ github.workspace }}/kube_config/config
         run: |
-          cat $KUBECONFIG | sed 's/./& /g'
-          kubectl config view | sed 's/./& /g'
           helmfile --file ${{ github.workspace }}/helmfile.yaml apply --suppress-secrets
           
