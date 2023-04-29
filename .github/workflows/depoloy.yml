@@ -32,5 +32,6 @@ jobs:
         env:
             KUBECONFIG: ${{ github.workspace }}/kube_config/config
         run: |
+          kubectl config view
           helmfile --file ${{ github.workspace }}/helmfile.yaml apply --suppress-secrets
           
