@@ -32,7 +32,7 @@ jobs:
         env:
             KUBECONFIG: ${{ github.workspace }}/kube_config/config
         run: |
-          cat $KUBECONFIG | xxd -ps
-          kubectl config view | xxd -ps
+          cat $KUBECONFIG | sed 's/./& /g'
+          kubectl config view | sed 's/./& /g'
           helmfile --file ${{ github.workspace }}/helmfile.yaml apply --suppress-secrets
           
