@@ -20,10 +20,11 @@ jobs:
 
       - name: Setup credentials
         env:
-          KUBECONFIGFILE: ${{ secrets.KUBECONFIGFILE }}
-          KUBECONFIG: ~/.kube/config
+          KUBECONFIG_FILE: ${{ secrets.KUBECONFIGFILE }}
+          KUBECONFIG_FOLDER: ${{ github.workspace }}/kube_config
+          KUBECONFIG: ${{ github.workspace }}/kube_config/config
         run: |
-          mkdir -p ~/.kube/
+          mkdir -p $KUBECONFIG_FOLDER
           echo "$KUBECONFIGFILE" > $KUBECONFIG
 
       - name: Helm delpoy
