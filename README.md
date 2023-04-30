@@ -96,8 +96,12 @@ https://github.com/tzumby/rails-on-kubernetes?ref=monkeyvault.net
 
 
 creating secrets
-
+```
 $ kubectl create -n <...> secret generic db-user-pass --from-literal=password=mysecretpass
+```
+```
 $ kubectl create -n <...> secret generic db-user --from-literal=username=postgres
-
+```
+```
 $ kubectl create secret generic secret-key-base --from-literal=secret-key-base=50dae16d7d1403e175ceb2461605b527cf87a5b18479740508395cb3f1947b12b63bad049d7d1545af4dcafa17a329be4d29c18bd63b421515e37b43ea43df64
+```
